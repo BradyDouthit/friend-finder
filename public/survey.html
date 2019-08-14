@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Survey</h1>
+    <hr>
+    <h2>Name (required)</h2>
+    <input type="text" id="name" class="form-control" required="">
+    <ol class="list">
+        <li class="list list-item">
+            You like cars:
+            <select name="question1">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You like sports:
+            <select name="question2">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You like animals:
+            <select name="question3">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You are career driven:
+            <select name="question4">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You like to spend time outside:
+            <select name="question5">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You are an introvert:
+            <select name="question6">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You work well with others:
+            <select name="question7">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You always make sure to get some excercise:
+            <select name="question8">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You help people in need:
+            <select name="question9">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+        <li class="list list-item">
+            You are forgiving when someone makes a mistake:
+            <select name="question10">
+                <option value="1">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </li>
+    </ol>
+    <button id="submit">Submit</button>
+</body>
+<script>
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+    })
+</script>
+
+</html>
