@@ -9,115 +9,144 @@
     <h1>Survey</h1>
     <hr>
     <h2>Name (required)</h2>
-    <input type="text" id="name" class="form-control" required="">
+    <input type="text" id="name" class="form-control">
     <ol class="list">
         <li class="list list-item">
             You like cars:
-            <select name="question1">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question1">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You like sports:
-            <select name="question2">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question2">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You like animals:
-            <select name="question3">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question3">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You are career driven:
-            <select name="question4">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question4">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You like to spend time outside:
-            <select name="question5">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question5">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You are an introvert:
-            <select name="question6">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question6">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You work well with others:
-            <select name="question7">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question7">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You always make sure to get some excercise:
-            <select name="question8">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question8">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You help people in need:
-            <select name="question9">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question9">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
         <li class="list list-item">
             You are forgiving when someone makes a mistake:
-            <select name="question10">
-                <option value="1">1 (strongly disagree)</option>
+            <select class="question10">
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value="5">5</option>
             </select>
         </li>
     </ol>
     <button id="submit">Submit</button>
+    <a class="viewData" href="api/friends">View Data</a>
 </body>
 <script>
     $("#submit").on("click", function (event) {
         event.preventDefault();
-    })
+        var nameVal = $("#name").val();
+        var scores = [
+            $(".question1 option:selected").val(),
+            $(".question2 option:selected").val(),
+            $(".question3 option:selected").val(),
+            $(".question4 option:selected").val(),
+            $(".question5 option:selected").val(),
+            $(".question6 option:selected").val(),
+            $(".question7 option:selected").val(),
+            $(".question8 option:selected").val(),
+            $(".question9 option:selected").val(),
+            $(".question10 option:selected").val(),
+        ];
+        var friends = {
+                "name": $("#name").val().trim(),
+                "scores": scores
+            };
+        if (nameVal === "") {
+            alert("You must enter your name");
+        }
+        else {
+            console.log("posting");
+
+            
+            $.post("/api/friends", friends, function (data) {
+                $("#name").val("");
+            });
+        }
+    });
 </script>
 
 </html>
