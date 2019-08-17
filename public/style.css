@@ -1,0 +1,16 @@
+.my-modal {
+    display: none;
+}
+ol {
+    margin-top: 50px;
+}
+.list-item {
+    margin-top: 10px;
+}
+.main {
+    background-color: greenyellow;
+    padding-bottom: 40px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+

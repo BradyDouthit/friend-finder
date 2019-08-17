@@ -1,6 +1,7 @@
 $("#submit").on("click", function (event) {
     event.preventDefault();
     var nameVal = $("#name").val();
+    var photoVal = $("#photo").val();
     var scores = [
         parseInt($(".question1 option:selected").val()),
         $(".question2 option:selected").val(),
@@ -20,17 +21,28 @@ $("#submit").on("click", function (event) {
     
     var friends = {
             "name": $("#name").val().trim(),
-            "scores": scores
+            "scores": scores,
+            "photo": $("#photo").val().trim()
         };
     if (nameVal === "") {
         alert("You must enter your name");
     }
+    if (photoVal === "") {
+        alert("You must link to a photo");
+    }
     else {
         console.log("posting");
-
+        $(".my-modal").show();
         $.post("/api/friends", friends, function (data) {
             $("#name").val("");
+            $("#photo").val("");
             console.log(data)
+            var newDiv = $("<div>");
+            var newImg = $("<img style='width: 250px;'>");
+            newImg.attr("src", data.photo);
+            newDiv.html(data.name)
+            $(".modal-body").prepend(newDiv);
+            $(".modal-body").prepend(newImg);
         });
     }
 });
