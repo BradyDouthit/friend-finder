@@ -31,6 +31,7 @@ $("#submit").on("click", function (event) {
         alert("You must link to a photo");
     }
     else {
+        $(".modal-body").empty();
         console.log("posting");
         $(".my-modal").show();
         $.post("/api/friends", friends, function (data) {
@@ -39,6 +40,7 @@ $("#submit").on("click", function (event) {
             console.log(data)
             var newDiv = $("<div>");
             var newImg = $("<img style='width: 250px;'>");
+            $('.modal-title').text('Your match is: ' + data.name)
             newImg.attr("src", data.photo);
             newDiv.html(data.name)
             $(".modal-body").prepend(newDiv);

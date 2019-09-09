@@ -1,6 +1,9 @@
 .my-modal {
     display: none;
 }
+.modal-content {
+    background-color: #004594;
+}
 ol {
     margin-top: 50px;
 }
@@ -8,9 +11,37 @@ ol {
     margin-top: 10px;
 }
 .main {
-    background-color: greenyellow;
+    background-color: #004594;
+    color: white;
     padding-bottom: 40px;
     margin-top: 1vh;
     margin-bottom: 1vh;
+}
+.select {
+    border-radius: 10px;
+    background-color: darkgray;
+}
+.survey-body {
+    background-color: #248aff;
+}
+.form-control {
+    background-color: darkgray;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.x {
+    color:white;
+}
+.btn-primary {
+    background-color: #248aff;
+}
+#home {
+    background-color: #248aff;
+    color: white;
+}
+#survey-link {
+    font-size: 20px;
+    color: lightgray;
 }
 

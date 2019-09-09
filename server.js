@@ -8,6 +8,7 @@ let PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/public", express.static('./public/'));
+app.set('view engine', 'html');
 
 require("./routing/htmlRoutes")(app);
 require("./routing/apiRoutes")(app);
